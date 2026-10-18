@@ -1,0 +1,28 @@
+{
+  "_comment": "MAPK/ERK (RAS-RAF-MEK-ERK) pathway, simplified for teaching purposes. Topology is based on the well-established MAPK cascade; edge weights are a modelled simplification representing 'signal transmission efficiency' at each step, not measured biological constants.",
+
+  "pathway_id": "mapk",
+  "name": "MAPK/ERK Signalling Pathway (simplified)",
+  "description": "One of the best-studied cell signalling pathways. A growth signal outside the cell is passed through a chain of proteins inside the cell, each one activating the next, ending in a change in cell behaviour such as growth or division.",
+
+  "nodes": [
+    { "node_key": "GrowthFactor",     "label": "Growth Factor",     "protein_uniprot_id": null,     "baseline_activity": 1.0, "position": { "x": 0,   "y": 150 } },
+    { "node_key": "Receptor",         "label": "Receptor (RTK)",    "protein_uniprot_id": "P16234", "baseline_activity": 1.0, "position": { "x": 200, "y": 150 } },
+    { "node_key": "RAS",              "label": "RAS",               "protein_uniprot_id": "P01112", "baseline_activity": 1.0, "position": { "x": 400, "y": 150 } },
+    { "node_key": "RAF",              "label": "RAF",               "protein_uniprot_id": "P15056", "baseline_activity": 1.0, "position": { "x": 600, "y": 150 } },
+    { "node_key": "MEK",              "label": "MEK",               "protein_uniprot_id": "Q02750", "baseline_activity": 1.0, "position": { "x": 800, "y": 150 } },
+    { "node_key": "ERK",              "label": "ERK",               "protein_uniprot_id": null,     "baseline_activity": 1.0, "position": { "x": 1000,"y": 150 } },
+    { "node_key": "CellularResponse", "label": "Cellular Response", "protein_uniprot_id": null,     "baseline_activity": 1.0, "position": { "x": 1200,"y": 150 } }
+  ],
+
+  "edges": [
+    { "source": "GrowthFactor", "target": "Receptor",         "weight": 0.95, "interaction_type": "activation" },
+    { "source": "Receptor",     "target": "RAS",              "weight": 0.90, "interaction_type": "activation" },
+    { "source": "RAS",          "target": "RAF",              "weight": 0.90, "interaction_type": "activation" },
+    { "source": "RAF",          "target": "MEK",              "weight": 0.90, "interaction_type": "activation" },
+    { "source": "MEK",          "target": "ERK",              "weight": 0.90, "interaction_type": "activation" },
+    { "source": "ERK",          "target": "CellularResponse", "weight": 0.90, "interaction_type": "activation" }
+  ],
+
+  "terminal_node": "CellularResponse"
+}

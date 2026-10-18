@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #0B1620;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(51, 214, 176, 0.06), transparent 40%),
+      radial-gradient(circle at 85% 20%, rgba(242, 169, 59, 0.04), transparent 35%);
+  }
+  ::selection {
+    background-color: rgba(51, 214, 176, 0.25);
+    color: #EAF3F1;
+  }
+  :focus-visible {
+    outline: 2px solid #33D6B0;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .trace-dot {
+    animation: trace-pulse 3.2s ease-in-out infinite;
+  }
+  @keyframes trace-pulse {
+    0%, 100% { opacity: 0.35; r: 3.5; }
+    50% { opacity: 1; r: 5; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .trace-dot {
+      animation: none;
+      opacity: 0.85;
+    }
+  }
+}
+
+/* React Flow dark-theme overrides — the library ships light by default */
+.react-flow__controls {
+  background: #101E2B;
+  border: 1px solid #1E3040;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: none;
+}
+.react-flow__controls-button {
+  background: #101E2B;
+  border-bottom: 1px solid #1E3040;
+  fill: #EAF3F1;
+  stroke: #EAF3F1;
+}
+.react-flow__controls-button:hover {
+  background: #1E3040;
+}
+.react-flow__attribution {
+  display: none;
+}

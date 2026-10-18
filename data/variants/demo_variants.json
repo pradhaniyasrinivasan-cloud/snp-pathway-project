@@ -1,0 +1,127 @@
+{
+  "_comment": "Demo/modelled dataset for the SNP-to-Pathways MVP. Fields marked is_modelled=true are NOT real predictions and are labeled as such in the UI. Real-world values (based on public knowledge of these well-known variants) are used where reasonably established; perturbation_factor and edge weights are always modelled. All rsIDs, positions (GRCh38) and SIFT/PolyPhen/ClinVar values were checked against MyVariant.info (dbSNP/dbNSFP/ClinVar) in October 2026.",
+  "demo-001": {
+    "variant_id": "demo-001",
+    "rsid": "rs113488022",
+    "chromosome": "7",
+    "position": 140753336,
+    "ref_allele": "A",
+    "alt_allele": "T",
+    "gene_symbol": "BRAF",
+    "consequence": "missense_variant",
+    "amino_acid_change": "V600E",
+    "source": "demo",
+    "protein": {
+      "uniprot_id": "P15056",
+      "name": "Serine/threonine-protein kinase B-raf",
+      "simple_description": "This protein is a relay switch inside the cell. When a growth signal arrives at the cell surface, this protein helps pass that signal further down the chain, eventually telling the cell to grow or divide."
+    },
+    "functional_effect": {
+      "sift_prediction": null,
+      "sift_score": null,
+      "polyphen_prediction": "probably_damaging",
+      "polyphen_score": 0.971,
+      "clinvar_significance": "Pathogenic",
+      "impact_level": "HIGH",
+      "perturbation_factor": 1.8,
+      "perturbation_direction": "activating",
+      "is_modelled": false,
+      "note": "Well-characterized real-world variant (BRAF V600E, rs113488022). PolyPhen-2 and ClinVar values match MyVariant.info (dbNSFP has no SIFT score for this variant). It INCREASES (not decreases) downstream signalling, which is why perturbation_factor is >1.0; that direction and the 1.8 magnitude are our curated modelling choice, not a database value.",
+      "affected_node": "RAF"
+    },
+    "pathway_id": "mapk"
+  },
+  "demo-002": {
+    "variant_id": "demo-002",
+    "rsid": "rs104894229",
+    "chromosome": "11",
+    "position": 534289,
+    "ref_allele": "C",
+    "alt_allele": "T",
+    "gene_symbol": "HRAS",
+    "consequence": "missense_variant",
+    "amino_acid_change": "G12S",
+    "source": "demo",
+    "protein": {
+      "uniprot_id": "P01112",
+      "name": "GTPase HRas",
+      "simple_description": "This protein acts like an on/off switch just inside the cell membrane. It gets turned on when a growth signal is received, and passes that 'grow' instruction further down the signalling chain."
+    },
+    "functional_effect": {
+      "sift_prediction": "deleterious",
+      "sift_score": 0.028,
+      "polyphen_prediction": "possibly_damaging",
+      "polyphen_score": 0.797,
+      "clinvar_significance": "Pathogenic",
+      "impact_level": "HIGH",
+      "perturbation_factor": 1.4,
+      "perturbation_direction": "activating",
+      "is_modelled": false,
+      "note": "Real-world variant (HRAS G12S, rs104894229; associated with Costello syndrome). SIFT/PolyPhen/ClinVar values match MyVariant.info. Activating (gain-of-function) direction and the 1.4 magnitude are our curated modelling choice.",
+      "affected_node": "RAS"
+    },
+    "pathway_id": "mapk"
+  },
+  "demo-003": {
+    "variant_id": "demo-003",
+    "rsid": "rs866988382",
+    "chromosome": "4",
+    "position": 54273706,
+    "ref_allele": "C",
+    "alt_allele": "T",
+    "gene_symbol": "PDGFRA",
+    "consequence": "stop_gained",
+    "amino_acid_change": "R512*",
+    "source": "demo",
+    "protein": {
+      "uniprot_id": "P16234",
+      "name": "Platelet-derived growth factor receptor alpha",
+      "simple_description": "This protein sits on the cell surface and acts as the antenna that first receives the growth signal from outside the cell, before passing it inward."
+    },
+    "functional_effect": {
+      "sift_prediction": null,
+      "sift_score": null,
+      "polyphen_prediction": null,
+      "polyphen_score": null,
+      "clinvar_significance": "Uncertain significance",
+      "impact_level": "HIGH",
+      "perturbation_factor": 0.15,
+      "perturbation_direction": "loss_of_function",
+      "is_modelled": true,
+      "note": "Real PDGFRA nonsense variant (R512*, rs866988382). ClinVar lists it as 'Uncertain significance' and there are no SIFT/PolyPhen scores (they only score missense changes). A premature stop codon usually truncates the protein, so perturbation_factor is estimated from the consequence type using our documented heuristic (nonsense -> ~0.15). This is a Modelled Prediction, NOT a database prediction.",
+      "affected_node": "Receptor"
+    },
+    "pathway_id": "mapk"
+  },
+  "demo-004": {
+    "variant_id": "demo-004",
+    "rsid": "rs2140583667",
+    "chromosome": "15",
+    "position": 66436799,
+    "ref_allele": "G",
+    "alt_allele": "A",
+    "gene_symbol": "MAP2K1",
+    "consequence": "synonymous_variant",
+    "amino_acid_change": "L115L",
+    "source": "demo",
+    "protein": {
+      "uniprot_id": "Q02750",
+      "name": "Dual specificity mitogen-activated protein kinase kinase 1 (MEK1)",
+      "simple_description": "This protein is another relay point in the signalling chain, passing the growth instruction one step further towards the cell's control center (the nucleus)."
+    },
+    "functional_effect": {
+      "sift_prediction": null,
+      "sift_score": null,
+      "polyphen_prediction": null,
+      "polyphen_score": null,
+      "clinvar_significance": "Likely benign",
+      "impact_level": "LOW",
+      "perturbation_factor": 0.97,
+      "perturbation_direction": "neutral",
+      "is_modelled": false,
+      "note": "Real synonymous (silent) variant in MAP2K1 (L115L, rs2140583667); ClinVar: 'Likely benign'. SIFT/PolyPhen do not score synonymous changes. The amino acid does not change, so protein function is expected to be almost unaffected. Included as a 'low impact' control example to contrast against demo-001/002/003.",
+      "affected_node": "MEK"
+    },
+    "pathway_id": "mapk"
+  }
+}
